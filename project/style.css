@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+.container {
+    perspective: 900px;
+    width: 100vw;
+    height: 100vh;
+    padding: 10px 10%;
+    overflow-x: hidden;
+}
+nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    width: 150px;
+    cursor: pointer;
+}
+nav ul {
+    flex: 1;
+    text-align: center;
+    list-style: none;
+}
+nav ul li {
+    display: inline-block;
+    margin: 10px 30px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    position: relative;
+    padding: 0 8px;
+}
+nav ul li a::before {
+    position: absolute;
+    left: 0;
+    bottom: -14px;
+    content: '';
+    width: 100%;
+    height: 0px;
+    background-color: #47ed05;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    z-index: -1;
+    transition: height 0.5s;
+}
+nav ul li.active a::before {
+    height: 5px;
+}
+nav ul li a:hover::before {
+    height: 75px;
+}
+.row {
+    transform-style: preserve-3d;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+.col {
+    transform-style: preserve-3d;
+    flex-basis: 50%;
+    position: relative;
+    /* border: 1px solid salmon; */
+}
+.bg-img {
+    width: 100%;
+    margin-top: 50px;
+    animation: bgImg 7s ease infinite;
+}
+.fg-img {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 70%;
+    animation: fgImg 7s ease infinite;
+}
+
+.col h1 {
+    margin-top: 100px;
+    line-height: 1.6;
+    font-size: 3vw;
+}
+.col h1 span {
+    font-weight: 500;
+    color: #3ac006;
+}
+.order-btn {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 30px;
+    background-color: #47ed05;
+    padding: 12px 30px;
+    border-radius: 30px;
+    box-shadow: 2px 3px 10px rgba(0,0,0, 0.2);
+}
+.order-btn:hover {
+    animation: btnAnim 2s ease infinite;
+}
+
+@keyframes btnAnim {
+    50% {
+        background-color: #fa9d07;
+    }
+}
+
+@keyframes bgImg {
+    50% {
+        transform: scale(1.1) translateY(-30px);
+    }
+}
+
+@keyframes fgImg {
+    50% {
+        transform: translateX(-20px) translateZ(250px) rotateX(30deg);
+    }
+}
